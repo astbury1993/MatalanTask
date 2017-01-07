@@ -9,16 +9,19 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 	end
 
-	# define New event
-	def new
-	end
+    def new
+       @article = Article.new
+    end
 	
 	# define Create event 
 	def create
 		@article = Article.new(article_params)
 		
-		@article.save
+		if @article.save
 		redirect_to @article
+        else
+        render 'new'
+        end
 	end
 	
 	private
