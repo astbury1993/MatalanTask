@@ -1,35 +1,5 @@
 <h1>Editing Article</h1>
 
-<%= form_for :article, url:article_path(@article), method:
-:patch do |f| %>
-	<% if @article.errors.any? %>
-		<div id="error_explanation">
-			<h2>
-				<%= pluralize(@article.errors.count, "error") %>
-				prohibted
-				this article from being save:
-			</h2>
-			<ul>
-				<% @article.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-	
-	<p>
-    	<%= f.label :title %><br>
-    	<%= f.text_field :title %>
-	</p>
+<%= render 'form' %>
 
-	<p>
-    	<%= f.label :text %><br>
-    	<%= f.text_field :text %>
-	</p>
-
-	<p>
-    	<%= f.submit %>
-	</p>
-
-<% end %>
 <%= link_to 'Back', articles_path %>
