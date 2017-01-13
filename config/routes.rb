@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
-  resources :articles do
-      resources :comments
-      end
+    #resources :articles do
+    # resources :comments
+    # end
   
   root 'welcome#index'
+  
+  # session creation
+  post '/signin' => 'sessions#create'
+  delete '/signout' => 'sessions#destroy'
+  
+  # get users for sign up
+  get '/signup' => 'users#new'
+  resources :users, only: [:create]
+  
+  # Gather articles for users articles
+  # use "as:" so that code remains easier to understand
+  get '/users/:id' => 'articles#index', as: 'articles_for_user'
+  resources :articles, except: [:index]
+  #
+  resources :comments, only: [:create]
+  get '/unsubscribe' => 'subscribers#unsubscribe', as: 'unsubscribe'
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

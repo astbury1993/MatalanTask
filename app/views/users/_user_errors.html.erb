@@ -1,0 +1,6 @@
+<% if @user.errors.any? %>
+	<p>User cannot be created. </p>
+	<% @user.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
+<% end %>

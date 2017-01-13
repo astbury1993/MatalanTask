@@ -1,2 +1,23 @@
 <h1>Welcome to Curtis Astbury's Blog</h1>
-<%= link_to 'Click here to view', controller: 'articles' %>
+
+
+<% if logged_in? %>
+	<h3>Welcome back <%= current_user.name %> </h3>
+		<p><%= link_to 'Sign out', signout_path, method: :delete %></p>
+
+
+	
+<% else %>
+
+<%= form_tag signin_path do %>
+	<%= label_tag 'session[Email]', 'Email' %>
+	<%= text_field_tag 'session[email]', nil, class: 'form-control' %> </br>
+	
+	<%= label_tag 'session[password]', 'Password' %>
+	<%= password_field_tag 'session[password]', nil, class: 'form-control' %> </br>
+	
+	<%= submit_tag 'Sign in', class: 'btn btn-primary' %>
+
+<% end %>
+<p>Don't have an account? <%= link_to 'Sign up', signup_path %> </p> 
+<% end %>

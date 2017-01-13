@@ -11,14 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109202421) do
+ActiveRecord::Schema.define(version: 20170113131835) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
+    t.integer  "user_id"
   end
+
+  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -29,5 +34,42 @@ ActiveRecord::Schema.define(version: 20170109202421) do
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.integer  "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "slugs", force: :cascade do |t|
+    t.string   "slug",                  null: false
+    t.integer  "slug_id",               null: false
+    t.integer  "slug_type",  limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "slugs", ["slug", "slug_type", "scope"], name: "index_slugs_on_slug_and_slug_type_and_scope", unique: true
+  add_index "slugs", ["slug", "slug_type"], name: "index_slugs_on_slug_and_slug_type"
+  add_index "slugs", ["slug_id"], name: "index_slugs_on_slug_id"
+  add_index "slugs", ["slug_type"], name: "index_slugs_on_slug_type"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "slug"
+  end
+
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end
