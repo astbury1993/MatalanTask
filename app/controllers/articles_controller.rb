@@ -9,14 +9,18 @@ class ArticlesController < ApplicationController
         @articles = @user.articles
     end
     
+    def ShowAll
+        @articles = Articles.All
+    end
+    
 	# define show event
 	def show
-		@article = Article.find(params[:id])
+		@article = Article.friendly.find(params[:id])
         @user = @article.user
 	end
 
     def new
-       @article = current_user.Article.new
+       @article = current_user.articles.new
     end
     
     def edit
@@ -25,10 +29,9 @@ class ArticlesController < ApplicationController
 	
 	# define Create event 
 	def create
-		@article = Article.new(article_params)
-		
+		@article = current_user.articles.new(article_params)
 		if @article.save
-		redirect_to @article
+		redirect_to article_url(@article.slug)
         else
         render 'new'
         end

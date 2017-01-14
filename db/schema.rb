@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170113131835) do
+ActiveRecord::Schema.define(version: 20170113143637) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20170113131835) do
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
+
+  create_table "create_subscribers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "email"
+    t.string   "unsubscribe_token"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
