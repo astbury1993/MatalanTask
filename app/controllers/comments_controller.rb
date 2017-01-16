@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
     
-    before_action :require_login, only [:destroy]
-    before_action :require_author, only [:destroy]
+
     
     def create
         article = Article.friendly.find(params[:article])
