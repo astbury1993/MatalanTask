@@ -1,25 +1,42 @@
-<h1>Listing articles</h1>
- 
+
+<div class="container">
+	<div class="row">
+		<div class="col_xs_10 text-center">
+<h1>Listing articles by <%= @user.name %></h1>
+ 	</div>
+</div>
  <%= link_to 'New Article', new_article_path %>
  
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
- 
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %></td>
 
-    </tr>
+ <% if @articles.any? %>
+ 	<div class="row">
+ 		<div class=""col-xs-10">
+  		<% @articles.each do |article| %>
+
+      <p><%= article.title %></p>
+      <p><%= article.text %></p>
+      <%= link_to 'Show', article_path(article) %>
+      <%= link_to 'Edit', edit_article_path(article) %>
+      <%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %>
+
   <% end %>
+  </div>
+  </div>
+  <% else %>
+  	<div class="row">
+  	<div class="col-xs-10 text-center">
+  		<p><%= @user.name %> has not yet posted any articles.</p>
+  	</div>
+  	</div>
   </br>
+  
+  <% end %>
+  
   <p><%= link_to 'Sign out', signout_path, method: :delete %></p>
   <FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+  
+  <%= render 'subscription_form' %>
+  
+  </div>
+  
 	
-</table>

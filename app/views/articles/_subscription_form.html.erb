@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col_xs-10 text-center">
+		<p>To keep up to date with this user's articles, subscribe here.</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-10 text-center">
+		<%= form_tag subscribers_path do |f| %>
+			<%= hidden_field_tag 'user', @user.slug %>
+			<%= email_field_tag 'subscriber[email]', nil, placeholder: 'enter email address here', class: 'form-control' %>
+		</div>
+	<%= submit_tag 'Subscribe', class:'btn btn-primary' %>
+<% end %>
+</div>
+</div>

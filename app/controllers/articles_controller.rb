@@ -9,10 +9,6 @@ class ArticlesController < ApplicationController
         @articles = @user.articles
     end
     
-    def ShowAll
-        @articles = Articles.All
-    end
-    
 	# define show event
 	def show
 		@article = Article.friendly.find(params[:id])
@@ -23,23 +19,25 @@ class ArticlesController < ApplicationController
        @article = current_user.articles.new
     end
     
+    
+    # define Create event
+    def create
+        @article = current_user.articles.new(article_params)
+        if @article.save
+            redirect_to article_url(@article.slug)
+            else
+            render 'new'
+        end
+    end
+    
+    
     def edit
-        @article = Article.find(params[:id])
+        @article = Article.friendly.find(params[:id])
     end
 	
-	# define Create event 
-	def create
-		@article = current_user.articles.new(article_params)
-		if @article.save
-		redirect_to article_url(@article.slug)
-        else
-        render 'new'
-        end
-	end
-    
     # Define Update event
     def update
-        @article = Article.find(params[:id])
+        @article = Article.friendly.find(params[:id])
         
         if @article.update(article_params)
             redirect_to @article
@@ -51,10 +49,15 @@ class ArticlesController < ApplicationController
     
     # deleting routine
     def destroy
-        @article = Article.find(params[:id])
-        @article.destroy
+        #@article = Article.find(params[:id])
+        #@article.destroy
         
-        redirect_to articles_path
+        #redirect_to articles_path
+        
+        article = Article.friendly.find(params[:id])
+        user = article.user
+        article.destroy
+        redirect_to root_url
     end
     
     
@@ -70,7 +73,7 @@ class ArticlesController < ApplicationController
             end
         end
         def require_author
-            unless current_user?(Article.find(params[:id]).user)
+            unless current_user?(Article.friendly.find(params[:id]).user)
                 flash[:warning] = "You don't have permission to access this page."
                 redirect_to root_url
             end

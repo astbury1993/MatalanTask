@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170113143637) do
+ActiveRecord::Schema.define(version: 20170116200437) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -68,6 +68,14 @@ ActiveRecord::Schema.define(version: 20170113143637) do
   add_index "slugs", ["slug", "slug_type"], name: "index_slugs_on_slug_and_slug_type"
   add_index "slugs", ["slug_id"], name: "index_slugs_on_slug_id"
   add_index "slugs", ["slug_type"], name: "index_slugs_on_slug_type"
+
+  create_table "subscribers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "email"
+    t.string   "unsubscribe_token"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

@@ -1,6 +1,6 @@
-class CreateCreateSubscribers < ActiveRecord::Migration
+class CreateSubscribers < ActiveRecord::Migration
   def change
-    create_table :create_subscribers do |t|
+    create_table :subscribers do |t|
       t.integer :user_id
       t.string :email
       t.string :unsubscribe_token
