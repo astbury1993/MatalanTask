@@ -18,15 +18,11 @@ gem 'autoprefixer-rails'
 
 gem 'friendly_id', '~> 5.1.0'
 
-gem 'sidekiq'
-
-gem 'mailcatcher'
-
-# Use redcarpet for parsing Markdown
-gem 'redcarpet', '~> 2.3.0'
-
 # Generate article previews
 gem 'nokogiri'
+
+# Create asynchronous jobs to send emails
+gem 'sidekiq'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
