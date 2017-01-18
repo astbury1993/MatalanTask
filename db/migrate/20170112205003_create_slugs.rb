@@ -4,7 +4,7 @@ class CreateSlugs < ActiveRecord::Migration
           create_table :friendly_id_slugs do |t|
               t.string    :slug,  :null => false
               t.integer   :sluggable_id,  :null => false
-              t.integer   :sluggable_type,  :limit => 50
+              t.integer   :sluggable_type,
               t.string    :scope
               t.datetime  :created_at
           end
