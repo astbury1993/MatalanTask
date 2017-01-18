@@ -14,6 +14,5 @@ class CreateSlugs < ActiveRecord::Migration
           add_index :friendly_id_slugs, :sluggable_type
       end
       
-  end
 
 end
