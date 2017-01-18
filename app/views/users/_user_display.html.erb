@@ -1,0 +1,12 @@
+<% User.all.each do |user| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= user.name %></h3>
+  </div>
+  <div class="panel-body">
+    Email: <%= user.email %></br>
+    <%= link_to 'View posts', articles_for_user_path(user.id) %>
+  </div>
+</div>
+
+<% end %>

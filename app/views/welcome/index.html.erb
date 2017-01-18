@@ -1,17 +1,16 @@
 <div class="container home_page">
-
-	<div class="row">
-		<div class="jumbotron">
-			<h1>Welcome to Curtis's Blogging Tool</h1>
-		</div>
-	</div>
+  <div class="row">
+    <div class="jumbotron">
+      <h1>Blogger Tool</h1>
+    </div>
+  </div>
 
 
 <% if logged_in? %>
-	<h3>Welcome back <%= current_user.name %> </h3>
-		<p><%= link_to 'Sign out', signout_path, method: :delete %></p>
-		<p><%= link_to 'View your posts', articles_for_user_path(current_user) %></p>
-		<%= submit_tag 'View All', class: 'btn btn-primary' %>
+  <h3>Welcome back <%= current_user.name %> </h3>
+    <p><%= link_to 'View your posts', articles_for_user_path(current_user) %>
+    <p><%= link_to 'View All Bloggers', bloggers_path %>
+    <p><%= link_to 'Sign out', signout_path, method: :delete %>
 			
 <% else %>
 
@@ -25,8 +24,6 @@
 	<%= password_field_tag 'session[password]', nil, class: 'form-control' %> </br>
 	
 	<%= submit_tag 'Sign in', class: 'btn btn-primary' %>
-
-
 
 <% end %>
 <p>Don't have an account? <%= link_to 'Sign up', signup_path %> </p> 

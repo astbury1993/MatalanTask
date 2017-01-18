@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     post '/signin' => 'sessions#create'
     delete '/signout' => 'sessions#destroy'
     
-    post '/viewall' => 'articles#showall'
+    # post '/viewall' => 'articles#showall'
     
     # users
     get '/signup' => 'users#new'
@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     # articles for user
     get '/users/:id' => 'articles#index', as: 'articles_for_user'
     resources :articles, except: [:index]
+    
+    # articles for user
+    get '/users' => 'users#index', as: 'bloggers'
+    resources :users
+
     
     
     # comments
