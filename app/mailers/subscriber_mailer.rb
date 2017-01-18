@@ -5,6 +5,6 @@ class SubscriberMailer < ApplicationMailer
         @subscriber = subscriber
         @article = article
         @user = user
-        mail to: subscriber.email, subject: "New Article on curtisblog by #{user.name)"
+        mail to: subscriber.email, subject: "New Article on by #{user.name}"
     end
 end
