@@ -1,7 +1,6 @@
 class CreateSlugs < ActiveRecord::Migration
 
       def change
-          drop_table :friendly_id_slugs
           create_table :friendly_id_slugs do |t|
               t.string    :slug,  :null => false
               t.integer   :sluggable_id,  :null => false
