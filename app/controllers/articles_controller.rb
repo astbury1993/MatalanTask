@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
         article = Article.friendly.find(params[:id])
         user = article.user
         article.destroy
-        redirect_to root_url
+        redirect_to :back
     end
     
     

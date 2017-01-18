@@ -1,15 +1,22 @@
 class CommentsController < ApplicationController
     
-
+    before_action :require_login, only: [:destroy]
+    before_action :require_author, only: [:destroy]
     
     def create
         article = Article.friendly.find(params[:article])
         @comment = article.comments.new(comment_params)
+        if @comment.save
+            flash[:success] = 'Your comment is now visible'
+        else
+            flash[:danger] = 'Name and comment are required'
+        end
         redirect_to :back
     end
     
     def destroy
-        comment = comment.find(params[:id]).destroy
+        comment = Comment.find(params[:id]).destroy
+        flash[:success] = 'Your comment has been deleted'
         redirect_to article_url(comment.article.slug)
     end
     
