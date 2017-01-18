@@ -35,18 +35,10 @@ ActiveRecord::Schema.define(version: 20170116200437) do
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
 
-  create_table "create_subscribers", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "email"
-    t.string   "unsubscribe_token"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
-    t.integer  "sluggable_type", limit: 50
+    t.string   "sluggable_type", limit: 50
     t.string   "scope"
     t.datetime "created_at"
   end
@@ -55,19 +47,6 @@ ActiveRecord::Schema.define(version: 20170116200437) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
-
-  create_table "slugs", force: :cascade do |t|
-    t.string   "slug",                  null: false
-    t.integer  "slug_id",               null: false
-    t.integer  "slug_type",  limit: 50
-    t.string   "scope"
-    t.datetime "created_at"
-  end
-
-  add_index "slugs", ["slug", "slug_type", "scope"], name: "index_slugs_on_slug_and_slug_type_and_scope", unique: true
-  add_index "slugs", ["slug", "slug_type"], name: "index_slugs_on_slug_and_slug_type"
-  add_index "slugs", ["slug_id"], name: "index_slugs_on_slug_id"
-  add_index "slugs", ["slug_type"], name: "index_slugs_on_slug_type"
 
   create_table "subscribers", force: :cascade do |t|
     t.integer  "user_id"

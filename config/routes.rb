@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     get '/signup' => 'users#new'
     resources :users, only: [:create]
     
+    post '/signup' => 'sessions#create'
+
     # articles for user
     get '/users/:id' => 'articles#index', as: 'articles_for_user'
     resources :articles, except: [:index]
