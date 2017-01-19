@@ -19304,3 +19304,136 @@ Processing by ArticlesController#new as HTML
   Rendered articles/_article_form.html.erb (2.7ms)
   Rendered articles/new.html.erb within layouts/application (5.9ms)
 Completed 200 OK in 125ms (Views: 120.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-01-19 16:49:41 +0000
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/_article_form.html.erb (6.7ms)
+  Rendered articles/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 307ms (Views: 294.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2017-01-19 16:49:48 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bs50zOcYrAYBZqnDnR49PnaII8/55gp0szXuhwv5CO25eZaPwenJj2BHuaPcAI2raqMT4dGcF8MlRZjjR4TnKQ==", "article"=>{"title"=>"Testing", "text"=>"Testing"}, "commit"=>"Create Article"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.4ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND "articles"."slug" = 'testing' LIMIT 1  [["sluggable_type", "Article"]]
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'Article' AND "friendly_id_slugs"."slug" = 'testing') LIMIT 1[0m  [["sluggable_type", "Article"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "text", "user_id", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Testing"], ["text", "Testing"], ["user_id", 2], ["slug", "testing"], ["created_at", "2017-01-19 16:49:48.197514"], ["updated_at", "2017-01-19 16:49:48.197514"]]
+  [1m[36mFriendlyId::Slug Load (0.1ms)[0m  [1mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1[0m  [["sluggable_id", 12], ["sluggable_type", "Article"]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?  [["sluggable_id", 12], ["sluggable_type", "Article"], ["slug", "testing"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)[0m  [["sluggable_id", 12], ["sluggable_type", "Article"], ["slug", "testing"], ["created_at", "2017-01-19 16:49:48.216009"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 2.9ms)
+
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  app/controllers/articles_controller.rb:27:in `create'
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.3ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (64.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (139.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-19 16:52:59 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered welcome/index.html.erb within layouts/application (64.1ms)
+Completed 200 OK in 813ms (Views: 799.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/steve" for 127.0.0.1 at 2017-01-19 16:53:02 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"steve"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "steve"]]
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered articles/_subscription_form.html.erb (5.2ms)
+  Rendered articles/index.html.erb within layouts/application (126.1ms)
+Completed 200 OK in 480ms (Views: 433.5ms | ActiveRecord: 3.6ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2017-01-19 16:53:09 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9YwgIdUI8M6cPljHPtLDZdSmICkvbfcubMZFnVGqIktKO8Ji8/mVR/0fSKd/zHPwyI0QBwcX6pn6tjP5HdfNjw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-19 16:53:09 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 225ms (Views: 223.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for 127.0.0.1 at 2017-01-19 16:53:13 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qecLtOvE6X3+o6C99uOFswKv2W0hntiCz0lZdcIZBAEWUOn3zTWM9J+CsN23/TUmHoTpQwnkxTVZOS8RjmTrxQ==", "session"=>{"email"=>"curtis.astbury@outlook.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "curtis.astbury@outlook.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 323ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-19 16:53:13 +0000
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 188ms (Views: 186.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/curtis-astbury" for 127.0.0.1 at 2017-01-19 16:53:15 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["slug", "curtis-astbury"]]
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (0.7ms)
+  Rendered articles/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 141ms (Views: 136.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-01-19 16:53:18 +0000
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered articles/_article_form.html.erb (41.7ms)
+  Rendered articles/new.html.erb within layouts/application (45.4ms)
+Completed 200 OK in 177ms (Views: 173.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2017-01-19 16:53:32 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QSNzA0EL2Kh8O0Go1XGaQBKEuWkeCjqJk3SH8nZzDsz+lJFAZ/q9IR0aUciUbyrVDq+JRzZwJz4FBPGWOg7hCA==", "article"=>{"title"=>"Redis port now accepting", "text"=>"Accepting port initialized"}, "commit"=>"Create Article"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND "articles"."slug" = 'redis-port-now-accepting' LIMIT 1  [["sluggable_type", "Article"]]
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'Article' AND "friendly_id_slugs"."slug" = 'redis-port-now-accepting') LIMIT 1[0m  [["sluggable_type", "Article"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "text", "user_id", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Redis port now accepting"], ["text", "Accepting port initialized"], ["user_id", 1], ["slug", "redis-port-now-accepting"], ["created_at", "2017-01-19 16:53:32.948477"], ["updated_at", "2017-01-19 16:53:32.948477"]]
+  [1m[36mFriendlyId::Slug Load (0.2ms)[0m  [1mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1[0m  [["sluggable_id", 13], ["sluggable_type", "Article"]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?  [["sluggable_id", 13], ["sluggable_type", "Article"], ["slug", "redis-port-now-accepting"]]
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)[0m  [["sluggable_id", 13], ["sluggable_type", "Article"], ["slug", "redis-port-now-accepting"], ["created_at", "2017-01-19 16:53:32.966803"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/redis-port-now-accepting
+Completed 302 Found in 286ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/articles/redis-port-now-accepting" for 127.0.0.1 at 2017-01-19 16:53:32 +0000
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"redis-port-now-accepting"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."slug" = ?  ORDER BY "articles"."id" ASC LIMIT 1[0m  [["slug", "redis-port-now-accepting"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mComment Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."article_id" = ? LIMIT 1[0m  [["article_id", 13]]
+  Rendered articles/_subscription_form.html.erb (1.7ms)
+  Rendered articles/show.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 172ms (Views: 167.0ms | ActiveRecord: 0.7ms)
