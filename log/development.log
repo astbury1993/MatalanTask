@@ -19437,3 +19437,133 @@ Processing by ArticlesController#show as HTML
   Rendered articles/_subscription_form.html.erb (1.7ms)
   Rendered articles/show.html.erb within layouts/application (21.3ms)
 Completed 200 OK in 172ms (Views: 167.0ms | ActiveRecord: 0.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_articles_on_slug' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_articles_on_slug' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_type' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_slug' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_slug' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-19 17:19:19 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (64.0ms)
+Completed 200 OK in 909ms (Views: 896.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-01-19 17:19:22 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/_user_display.html.erb (2.2ms)
+  Rendered users/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 395ms (Views: 394.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-01-19 17:19:23 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["slug", "1"]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "users"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("friendly_id_slugs"."sluggable_type" = 'User' AND "friendly_id_slugs"."slug" = '1')  ORDER BY "users"."id" ASC LIMIT 1[0m  [["sluggable_type", "User"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mArticle Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mArticle Load (0.7ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (3.0ms)
+  Rendered articles/index.html.erb within layouts/application (50.5ms)
+Completed 200 OK in 365ms (Views: 277.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-01-19 17:19:25 +0000
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered articles/_article_form.html.erb (71.8ms)
+  Rendered articles/new.html.erb within layouts/application (75.9ms)
+Completed 200 OK in 244ms (Views: 236.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2017-01-19 17:19:34 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8r+FrdLxhJKosJcT8B0WAd5GS31VUChMPWosymulq+5NCGfu9ADhG8mRh3OxA6aUwm17U30qNfurGlquJ9hEKg==", "article"=>{"title"=>"Testing Delete", "text"=>"Testing stuff"}, "commit"=>"Create Article"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.6ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND "articles"."slug" = 'testing-delete' LIMIT 1  [["sluggable_type", "Article"]]
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'Article' AND "friendly_id_slugs"."slug" = 'testing-delete') LIMIT 1[0m  [["sluggable_type", "Article"]]
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "articles" ("title", "text", "user_id", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Testing Delete"], ["text", "Testing stuff"], ["user_id", 1], ["slug", "testing-delete"], ["created_at", "2017-01-19 17:19:34.510495"], ["updated_at", "2017-01-19 17:19:34.510495"]]
+  [1m[36mFriendlyId::Slug Load (0.6ms)[0m  [1mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1[0m  [["sluggable_id", 14], ["sluggable_type", "Article"]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?  [["sluggable_id", 14], ["sluggable_type", "Article"], ["slug", "testing-delete"]]
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)[0m  [["sluggable_id", 14], ["sluggable_type", "Article"], ["slug", "testing-delete"], ["created_at", "2017-01-19 17:19:34.530713"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/testing-delete
+Completed 302 Found in 254ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/articles/testing-delete" for 127.0.0.1 at 2017-01-19 17:19:34 +0000
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"testing-delete"}
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."slug" = ?  ORDER BY "articles"."id" ASC LIMIT 1[0m  [["slug", "testing-delete"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mComment Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "comments" WHERE "comments"."article_id" = ? LIMIT 1[0m  [["article_id", 14]]
+  Rendered articles/_subscription_form.html.erb (3.0ms)
+  Rendered articles/show.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 203ms (Views: 196.5ms | ActiveRecord: 1.3ms)
