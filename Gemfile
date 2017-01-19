@@ -10,8 +10,6 @@ gem 'sqlite3'
 end
 
 group :development do
-# Access an IRB console on exception
-gem 'web-console', '~> 2.0'
 
 # catch emails in dev
 gem 'mailcatcher'
