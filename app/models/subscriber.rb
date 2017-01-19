@@ -5,7 +5,7 @@ class Subscriber < ActiveRecord::Base
     
     # Email Validation including definition of allowed format
     EMAIL_REG = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-    validates :email, presence: true, uniqueness: {case_sensitive: false }, format: { with: EMAIL_REG }
+    validates :email, presence: true, uniqueness: { scope: :user_id, message: 'is already subscribed to this blogger' }, format: { with: EMAIL_REG }
     
     private
     

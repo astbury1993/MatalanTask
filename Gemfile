@@ -9,8 +9,22 @@ group :development, :test do
 gem 'sqlite3'
 end
 
+group :development do
+# Access an IRB console on exception
+gem 'web-console', '~> 2.0'
+
+# catch emails in dev
+gem 'mailcatcher'
+
+# Spring speeds up Dev
+gem 'spring'
+
+end
+
+
 group :production do
 gem 'pg'
+gem 'redis'
 end
 
 gem 'bootstrap-sass', '~> 3.2.0'

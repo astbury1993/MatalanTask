@@ -18601,3 +18601,706 @@ NameError (uninitialized constant ArticlesController::NotificationsWorker):
   Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
   Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
   Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (167.4ms)
+
+
+Started GET "/" for ::1 at 2017-01-19 15:49:07 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (3.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (75.3ms)
+Completed 200 OK in 893ms (Views: 876.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/curtis-astbury" for ::1 at 2017-01-19 15:49:11 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.5ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.6ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (3.2ms)
+  Rendered articles/index.html.erb within layouts/application (128.4ms)
+Completed 200 OK in 434ms (Views: 392.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/curtis-astbury" for ::1 at 2017-01-19 15:53:58 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["slug", "curtis-astbury"]]
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?  [["user_id", 1]]
+  Rendered articles/index.html.erb within layouts/application (48.0ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (undefined local variable or method `home_path' for #<#<Class:0x007fbeca178a00>:0x007fbed0bc7140>):
+    39:   
+    40:   <p><%= link_to 'Sign out', signout_path, method: :delete %></p>
+    41:  
+    42:   <p><%= link_to '<button type="button">Home</button>'.html_safe, home_path %></p>
+    43:   
+    44:   <%= render 'subscription_form' %>
+    45:   
+  app/views/articles/index.html.erb:42:in `_app_views_articles_index_html_erb___1492544707392512781_70228761259860'
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.4ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (91.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (75.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (159.8ms)
+
+
+Started GET "/users/curtis-astbury" for ::1 at 2017-01-19 15:54:49 +0000
+
+SyntaxError (/Users/Curtis/MatalanTask/MatalanTask/config/routes.rb:14: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+    get '/signup' => 'users#new'
+         ^
+/Users/Curtis/MatalanTask/MatalanTask/config/routes.rb:14: syntax error, unexpected =>, expecting keyword_end
+    get '/signup' => 'users#new'
+                    ^):
+  config/routes.rb:14: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  config/routes.rb:14: syntax error, unexpected =>, expecting keyword_end
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (89.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (63.2ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (144.9ms)
+
+
+Started GET "/users/curtis-astbury" for ::1 at 2017-01-19 15:55:36 +0000
+
+SyntaxError (/Users/Curtis/MatalanTask/MatalanTask/config/routes.rb:14: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+    get '/signup' => 'users#new',
+         ^
+/Users/Curtis/MatalanTask/MatalanTask/config/routes.rb:14: syntax error, unexpected =>, expecting keyword_end
+    get '/signup' => 'users#new',
+                    ^
+/Users/Curtis/MatalanTask/MatalanTask/config/routes.rb:14: syntax error, unexpected ',', expecting keyword_end):
+  config/routes.rb:14: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+  config/routes.rb:14: syntax error, unexpected =>, expecting keyword_end
+  config/routes.rb:14: syntax error, unexpected ',', expecting keyword_end
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.2ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (106.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (69.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (166.2ms)
+
+
+Started GET "/users/curtis-astbury" for ::1 at 2017-01-19 15:55:53 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.6ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.8ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/index.html.erb within layouts/application (47.9ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 3.2ms)
+
+ActionView::Template::Error (undefined local variable or method `home_path' for #<#<Class:0x007fbed0b7fd90>:0x007fbed0b7f250>):
+    39:   
+    40:   <p><%= link_to 'Sign out', signout_path, method: :delete %></p>
+    41:  
+    42:   <p><%= link_to '<button type="button">Home</button>'.html_safe, home_path %></p>
+    43:   
+    44:   <%= render 'subscription_form' %>
+    45:   
+  app/views/articles/index.html.erb:42:in `_app_views_articles_index_html_erb___1492544707392512781_70228761259860'
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.2ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (103.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (78.9ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (173.0ms)
+
+
+Started GET "/users/curtis-astbury" for ::1 at 2017-01-19 15:56:53 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["slug", "curtis-astbury"]]
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (1.4ms)
+  Rendered articles/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 178ms (Views: 174.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/curtis-astbury" for ::1 at 2017-01-19 16:00:03 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (1.2ms)
+  Rendered articles/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 198ms (Views: 195.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles/new" for ::1 at 2017-01-19 16:00:11 +0000
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered articles/_article_form.html.erb (53.9ms)
+  Rendered articles/new.html.erb within layouts/application (58.9ms)
+Completed 200 OK in 189ms (Views: 185.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/articles" for ::1 at 2017-01-19 16:00:22 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hW8INHtv34XrLe6NxpKhulTjJwoC0krzvCS6govx1lo62Op3XZ66DIoM/u2HjBEvSMgXJCqoV0QqVMzmx4w5ng==", "article"=>{"title"=>"Curtis Test Articles", "text"=>"Testing my email notes"}, "commit"=>"Create Article"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND "articles"."slug" = 'curtis-test-articles' LIMIT 1[0m  [["sluggable_type", "Article"]]
+  [1m[35mArticle Exists (0.6ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'Article' AND "friendly_id_slugs"."slug" = 'curtis-test-articles') LIMIT 1  [["sluggable_type", "Article"]]
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "articles" ("title", "text", "user_id", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Curtis Test Articles"], ["text", "Testing my email notes"], ["user_id", 1], ["slug", "curtis-test-articles"], ["created_at", "2017-01-19 16:00:23.160620"], ["updated_at", "2017-01-19 16:00:23.160620"]]
+  [1m[35mFriendlyId::Slug Load (0.5ms)[0m  SELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1  [["sluggable_id", 6], ["sluggable_type", "Article"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?[0m  [["sluggable_id", 6], ["sluggable_type", "Article"], ["slug", "curtis-test-articles"]]
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)  [["sluggable_id", 6], ["sluggable_type", "Article"], ["slug", "curtis-test-articles"], ["created_at", "2017-01-19 16:00:23.176953"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 273ms (ActiveRecord: 5.7ms)
+
+NameError (uninitialized constant ArticlesController::NotificationsWorker):
+  app/controllers/articles_controller.rb:27:in `create'
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.9ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (79.9ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (164.4ms)
+
+
+Started GET "/" for ::1 at 2017-01-19 16:20:08 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (58.4ms)
+Completed 200 OK in 349ms (Views: 337.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users" for ::1 at 2017-01-19 16:20:13 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/_user_display.html.erb (2.5ms)
+  Rendered users/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 199ms (Views: 197.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for ::1 at 2017-01-19 16:20:16 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["slug", "1"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "users"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("friendly_id_slugs"."sluggable_type" = 'User' AND "friendly_id_slugs"."slug" = '1')  ORDER BY "users"."id" ASC LIMIT 1[0m  [["sluggable_type", "User"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mArticle Load (1.7ms)[0m  SELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (2.4ms)
+  Rendered articles/index.html.erb within layouts/application (53.4ms)
+Completed 200 OK in 353ms (Views: 314.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/articles/new" for ::1 at 2017-01-19 16:20:21 +0000
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered articles/_article_form.html.erb (3.4ms)
+  Rendered articles/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 134ms (Views: 130.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/articles" for ::1 at 2017-01-19 16:22:32 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RDG7k6cBN61+vq5GAW+oEcMW3//F5FWGs2Un8T355MP7hlnQgfBSJB+fviZAcRiE3z3v0e2eSDElFVGVcYQLBw==", "article"=>{"title"=>"New Article for Emailing", "text"=>"Still testing email"}, "commit"=>"Create Article"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND "articles"."slug" = 'new-article-for-emailing' LIMIT 1  [["sluggable_type", "Article"]]
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'Article' AND "friendly_id_slugs"."slug" = 'new-article-for-emailing') LIMIT 1[0m  [["sluggable_type", "Article"]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "articles" ("title", "text", "user_id", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "New Article for Emailing"], ["text", "Still testing email"], ["user_id", 1], ["slug", "new-article-for-emailing"], ["created_at", "2017-01-19 16:22:32.393247"], ["updated_at", "2017-01-19 16:22:32.393247"]]
+  [1m[36mFriendlyId::Slug Load (0.4ms)[0m  [1mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1[0m  [["sluggable_id", 7], ["sluggable_type", "Article"]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?  [["sluggable_id", 7], ["sluggable_type", "Article"], ["slug", "new-article-for-emailing"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)[0m  [["sluggable_id", 7], ["sluggable_type", "Article"], ["slug", "new-article-for-emailing"], ["created_at", "2017-01-19 16:22:32.402960"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.9ms)
+
+NameError (uninitialized constant ArticlesController::NotificationsWorker):
+  app/controllers/articles_controller.rb:27:in `create'
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.9ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (87.2ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (75.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (149.6ms)
+
+
+Started GET "/" for ::1 at 2017-01-19 16:30:34 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (61.5ms)
+Completed 200 OK in 768ms (Views: 751.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/curtis-astbury" for ::1 at 2017-01-19 16:30:37 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (1.8ms)
+  Rendered articles/index.html.erb within layouts/application (43.5ms)
+Completed 200 OK in 366ms (Views: 328.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/articles/new" for ::1 at 2017-01-19 16:30:39 +0000
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered articles/_article_form.html.erb (62.3ms)
+  Rendered articles/new.html.erb within layouts/application (67.5ms)
+Completed 200 OK in 257ms (Views: 250.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/articles" for ::1 at 2017-01-19 16:30:49 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"17SzPJ1l/QpoBL9ZNBMrXFdQaOHJE3tG7CfPtSHqbxpoA1F/u5SYgwklrzl1DZvJS3tYz+FpZvF6V7nRbZeA3g==", "article"=>{"title"=>"Test New Note", "text"=>"Hoping this doesnt fail"}, "commit"=>"Create Article"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND "articles"."slug" = 'test-new-note' LIMIT 1[0m  [["sluggable_type", "Article"]]
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'Article' AND "friendly_id_slugs"."slug" = 'test-new-note') LIMIT 1  [["sluggable_type", "Article"]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "text", "user_id", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Test New Note"], ["text", "Hoping this doesnt fail"], ["user_id", 1], ["slug", "test-new-note"], ["created_at", "2017-01-19 16:30:49.884948"], ["updated_at", "2017-01-19 16:30:49.884948"]]
+  [1m[35mFriendlyId::Slug Load (0.2ms)[0m  SELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1  [["sluggable_id", 8], ["sluggable_type", "Article"]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?[0m  [["sluggable_id", 8], ["sluggable_type", "Article"], ["slug", "test-new-note"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)  [["sluggable_id", 8], ["sluggable_type", "Article"], ["slug", "test-new-note"], ["created_at", "2017-01-19 16:30:49.900884"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 3.7ms)
+
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  app/controllers/articles_controller.rb:27:in `create'
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (92.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (67.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (150.0ms)
+
+
+Started GET "/" for ::1 at 2017-01-19 16:35:26 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (96.8ms)
+Completed 200 OK in 627ms (Views: 614.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/curtis-astbury" for ::1 at 2017-01-19 16:35:28 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (3.2ms)
+  Rendered articles/index.html.erb within layouts/application (55.8ms)
+Completed 200 OK in 419ms (Views: 300.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/new" for ::1 at 2017-01-19 16:35:31 +0000
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered articles/_article_form.html.erb (79.4ms)
+  Rendered articles/new.html.erb within layouts/application (83.6ms)
+Completed 200 OK in 305ms (Views: 300.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/articles" for ::1 at 2017-01-19 16:35:46 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DHirqkONRYGWzZXNpo9VPlYLiHquUz5DMAwWOiED89+zz0npZXwgCPfsha3nkeWrSiC4VIYpI/SmfGBebX4cGw==", "article"=>{"title"=>"Final test hopefully", "text"=>"This will hopefully be my last test for emailing "}, "commit"=>"Create Article"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND "articles"."slug" = 'final-test-hopefully' LIMIT 1[0m  [["sluggable_type", "Article"]]
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'Article' AND "friendly_id_slugs"."slug" = 'final-test-hopefully') LIMIT 1  [["sluggable_type", "Article"]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "text", "user_id", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Final test hopefully"], ["text", "This will hopefully be my last test for emailing "], ["user_id", 1], ["slug", "final-test-hopefully"], ["created_at", "2017-01-19 16:35:46.488095"], ["updated_at", "2017-01-19 16:35:46.488095"]]
+  [1m[35mFriendlyId::Slug Load (0.2ms)[0m  SELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1  [["sluggable_id", 9], ["sluggable_type", "Article"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?[0m  [["sluggable_id", 9], ["sluggable_type", "Article"], ["slug", "final-test-hopefully"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)  [["sluggable_id", 9], ["sluggable_type", "Article"], ["slug", "final-test-hopefully"], ["created_at", "2017-01-19 16:35:46.502663"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 281ms (ActiveRecord: 3.9ms)
+
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  app/controllers/articles_controller.rb:27:in `create'
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (106.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (72.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (164.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-19 16:39:39 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (62.8ms)
+Completed 200 OK in 825ms (Views: 813.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/curtis-astbury" for 127.0.0.1 at 2017-01-19 16:39:42 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (5.3ms)
+  Rendered articles/index.html.erb within layouts/application (144.8ms)
+Completed 200 OK in 450ms (Views: 405.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-01-19 16:39:44 +0000
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered articles/_article_form.html.erb (73.7ms)
+  Rendered articles/new.html.erb within layouts/application (77.7ms)
+Completed 200 OK in 198ms (Views: 193.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2017-01-19 16:39:49 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uwTQLv51GoAJxsm5hMqnL8KBu/lK/FkQcb5Xkb6eUuAEszJt2IR/CWjn2dnF1Be63qqL12KGRKfnziH18uO9JA==", "article"=>{"title"=>"Completion", "text"=>"Test"}, "commit"=>"Create Article"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND "articles"."slug" = 'completion' LIMIT 1[0m  [["sluggable_type", "Article"]]
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'Article' AND "friendly_id_slugs"."slug" = 'completion') LIMIT 1  [["sluggable_type", "Article"]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "text", "user_id", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Completion"], ["text", "Test"], ["user_id", 1], ["slug", "completion"], ["created_at", "2017-01-19 16:39:49.955483"], ["updated_at", "2017-01-19 16:39:49.955483"]]
+  [1m[35mFriendlyId::Slug Load (0.2ms)[0m  SELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1  [["sluggable_id", 10], ["sluggable_type", "Article"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?[0m  [["sluggable_id", 10], ["sluggable_type", "Article"], ["slug", "completion"]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)  [["sluggable_id", 10], ["sluggable_type", "Article"], ["slug", "completion"], ["created_at", "2017-01-19 16:39:49.971340"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 3.8ms)
+
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  app/controllers/articles_controller.rb:27:in `create'
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.2ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (99.8ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (84.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (193.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-19 16:40:11 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 150ms (Views: 148.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/curtis-astbury" for 127.0.0.1 at 2017-01-19 16:40:13 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (0.9ms)
+  Rendered articles/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 150ms (Views: 145.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/articles/testing" for 127.0.0.1 at 2017-01-19 16:40:23 +0000
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AvmSSru4/XxjoxfToTcO+mW1YfifF7j/+IiDdInNGP29TnAJnUmY9QKCB7PgKb5veZ5R1rdtpUhu+PUQxbD3OQ==", "id"=>"testing"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."slug" = ?  ORDER BY "articles"."id" ASC LIMIT 1[0m  [["slug", "testing"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."slug" = ?  ORDER BY "articles"."id" ASC LIMIT 1[0m  [["slug", "testing"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFriendlyId::Slug Load (0.2ms)[0m  SELECT "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC  [["sluggable_id", 4], ["sluggable_type", "Article"]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."id" = ?[0m  [["id", 5]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/curtis-astbury
+Completed 302 Found in 37ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/users/curtis-astbury" for 127.0.0.1 at 2017-01-19 16:40:23 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (1.4ms)
+  Rendered articles/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 126ms (Views: 123.0ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/articles/testing-email-notifications" for 127.0.0.1 at 2017-01-19 16:40:35 +0000
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HCGwp+vPAjSL4dOcSBDUem1Jd7pvBXMH09gOpW/gt5ejllLkzT5nverAw/wJDmTvcWJHlEd/brBFqHjBI51YUw==", "id"=>"testing-email-notifications"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."slug" = ?  ORDER BY "articles"."id" ASC LIMIT 1[0m  [["slug", "testing-email-notifications"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."slug" = ?  ORDER BY "articles"."id" ASC LIMIT 1[0m  [["slug", "testing-email-notifications"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFriendlyId::Slug Load (0.1ms)[0m  SELECT "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC  [["sluggable_id", 5], ["sluggable_type", "Article"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."id" = ?[0m  [["id", 6]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 5]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 5]]
+  [1m[35m (9.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/curtis-astbury
+Completed 302 Found in 21ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/users/curtis-astbury" for 127.0.0.1 at 2017-01-19 16:40:35 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (0.7ms)
+  Rendered articles/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 143ms (Views: 137.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/articles/curtis-test-articles" for 127.0.0.1 at 2017-01-19 16:40:38 +0000
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mt0wTujecO609mwLUu9ccQb8racx78pAfqsrBIzUblglatINzi8VZ9XXfGsT8ezkGtediRmV1/fo211gwKmBnA==", "id"=>"curtis-test-articles"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."slug" = ?  ORDER BY "articles"."id" ASC LIMIT 1[0m  [["slug", "curtis-test-articles"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."slug" = ?  ORDER BY "articles"."id" ASC LIMIT 1[0m  [["slug", "curtis-test-articles"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFriendlyId::Slug Load (0.1ms)[0m  SELECT "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC  [["sluggable_id", 6], ["sluggable_type", "Article"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."id" = ?[0m  [["id", 7]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 6]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/curtis-astbury
+Completed 302 Found in 13ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/users/curtis-astbury" for 127.0.0.1 at 2017-01-19 16:40:38 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"curtis-astbury"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "curtis-astbury"]]
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (0.8ms)
+  Rendered articles/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 131ms (Views: 127.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/articles/new-article-for-emailing" for 127.0.0.1 at 2017-01-19 16:40:39 +0000
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"new-article-for-emailing"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."slug" = ?  ORDER BY "articles"."id" ASC LIMIT 1  [["slug", "new-article-for-emailing"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Exists (0.2ms)[0m  SELECT  1 AS one FROM "comments" WHERE "comments"."article_id" = ? LIMIT 1  [["article_id", 7]]
+  Rendered articles/_subscription_form.html.erb (0.6ms)
+  Rendered articles/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 141ms (Views: 135.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2017-01-19 16:40:56 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/_user_display.html.erb (3.5ms)
+  Rendered users/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 133ms (Views: 132.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-19 16:41:00 +0000
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 120ms (Views: 119.4ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2017-01-19 16:41:02 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DYIzi2OC+8m3R+LwtrR4k4pOGTP/za6vufqcABISNn2yNdHIRXOeQNZm8pD3qsgGlmUpHde3sxgviupkXm/ZuQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-19 16:41:02 +0000
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 127ms (Views: 125.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-01-19 16:41:04 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_user_errors.html.erb (0.8ms)
+  Rendered users/_user_form.html.erb (8.7ms)
+  Rendered users/new.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 169ms (Views: 167.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-01-19 16:41:16 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g661P98BtXgJE5pJNhbUg+oiuBF4khdMlAIYRiQGDYg8GVd8+fDQ8Wgyiil3CGQW9gmIP1DoCvsCcm4iaHviTA==", "user"=>{"name"=>"Steve", "email"=>"steve@steve.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "users"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("users"."id" IS NOT NULL) AND "users"."slug" = 'steve' LIMIT 1  [["sluggable_type", "User"]]
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "users"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("users"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'User' AND "friendly_id_slugs"."slug" = 'steve') LIMIT 1[0m  [["sluggable_type", "User"]]
+  [1m[35mUser Exists (7.8ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER('Steve') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('steve@steve.com') LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Steve"], ["email", "steve@steve.com"], ["password_digest", "$2a$10$mR3416Fy4EhviuHHVXv.u.z8Qhv/fJt6OnFLQSz6Tll5/Uel9snGy"], ["slug", "steve"], ["created_at", "2017-01-19 16:41:16.490616"], ["updated_at", "2017-01-19 16:41:16.490616"]]
+  [1m[36mFriendlyId::Slug Load (0.1ms)[0m  [1mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1[0m  [["sluggable_id", 2], ["sluggable_type", "User"]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?  [["sluggable_id", 2], ["sluggable_type", "User"], ["slug", "steve"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)[0m  [["sluggable_id", 2], ["sluggable_type", "User"], ["slug", "steve"], ["created_at", "2017-01-19 16:41:16.499877"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/steve
+Completed 302 Found in 377ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/users/steve" for 127.0.0.1 at 2017-01-19 16:41:16 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"steve"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "steve"]]
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  Rendered articles/_subscription_form.html.erb (0.9ms)
+  Rendered articles/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 150ms (Views: 147.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-01-19 16:41:19 +0000
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered articles/_article_form.html.erb (3.3ms)
+  Rendered articles/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 146ms (Views: 142.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2017-01-19 16:41:27 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PO7RZO0BbtqNTxHHgIMK2OIw+NDd9R0GkmPAsHasHmODWTMny/ALU+xuAafBnbpN/hvI/vWPALEEE7bUOtHxpw==", "article"=>{"title"=>"Testing Notes", "text"=>"Whoops."}, "commit"=>"Create Article"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND "articles"."slug" = 'testing-notes' LIMIT 1  [["sluggable_type", "Article"]]
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "articles"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("articles"."id" IS NOT NULL) AND ("friendly_id_slugs"."sluggable_type" = 'Article' AND "friendly_id_slugs"."slug" = 'testing-notes') LIMIT 1[0m  [["sluggable_type", "Article"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "text", "user_id", "slug", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Testing Notes"], ["text", "Whoops."], ["user_id", 2], ["slug", "testing-notes"], ["created_at", "2017-01-19 16:41:27.452502"], ["updated_at", "2017-01-19 16:41:27.452502"]]
+  [1m[36mFriendlyId::Slug Load (0.1ms)[0m  [1mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ?  ORDER BY "friendly_id_slugs".id DESC LIMIT 1[0m  [["sluggable_id", 11], ["sluggable_type", "Article"]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ?  [["sluggable_id", 11], ["sluggable_type", "Article"], ["slug", "testing-notes"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "friendly_id_slugs" ("sluggable_id", "sluggable_type", "slug", "created_at") VALUES (?, ?, ?, ?)[0m  [["sluggable_id", 11], ["sluggable_type", "Article"], ["slug", "testing-notes"], ["created_at", "2017-01-19 16:41:27.458125"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 2.9ms)
+
+Redis::CannotConnectError (Error connecting to Redis on 127.0.0.1:6379 (Errno::ECONNREFUSED)):
+  app/controllers/articles_controller.rb:27:in `create'
+
+
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.3ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (90.3ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (70.1ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Curtis/.tokaido/Gems/2.2.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (155.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-19 16:41:31 +0000
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 125ms (Views: 124.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-01-19 16:41:33 +0000
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/_user_display.html.erb (3.5ms)
+  Rendered users/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 126ms (Views: 124.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-01-19 16:41:34 +0000
+Processing by ArticlesController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."slug" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["slug", "1"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "users"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("friendly_id_slugs"."sluggable_type" = 'User' AND "friendly_id_slugs"."slug" = '1')  ORDER BY "users"."id" ASC LIMIT 1  [["sluggable_type", "User"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT "articles".* FROM "articles" WHERE "articles"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered articles/_subscription_form.html.erb (1.1ms)
+  Rendered articles/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 140ms (Views: 133.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2017-01-19 16:41:36 +0000
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered articles/_article_form.html.erb (2.7ms)
+  Rendered articles/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 125ms (Views: 120.7ms | ActiveRecord: 0.3ms)
