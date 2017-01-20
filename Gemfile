@@ -24,9 +24,10 @@ group :production do
 gem 'pg'
 gem 'puma'
 gem 'rails_12factor'
-gem 'redis'
+
 end
 
+gem 'redis'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
