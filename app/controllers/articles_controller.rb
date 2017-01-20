@@ -25,6 +25,8 @@ class ArticlesController < ApplicationController
         @article = current_user.articles.new(article_params)
         if @article.save
             NotificationsWorker.perform_async(@article.id) # asynchrously send emails to all subscribers
+            #UserMailer.notify(@article).deliver_now
+            # SubscriberMailer.notify(@article.id).deliver
             redirect_to article_url(@article.slug)
             else
             render 'new'

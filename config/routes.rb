@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
     
+  resources :useremails
     # home page
     root 'welcome#index'
     
